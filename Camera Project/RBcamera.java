@@ -70,11 +70,11 @@ public class Practise
 	    	Thread.sleep(2000);
 	    	driver.findElement(By.xpath("//*[@id=\"subPage\"]/div[2]/div/button[1]")).click();
 	    	Thread.sleep(3000);
-	    	/*driver.findElement(By.xpath("//*[@id=\"passwordPrompt\"]/div/div[2]/div/div/div/div[1]/input")).sendKeys("admin@1230");
+	    	driver.findElement(By.xpath("//*[@id=\"passwordPrompt\"]/div/div[2]/div/div/div/div[1]/input")).sendKeys("admin@1230");
 	    	driver.findElement(By.xpath("//*[@id=\"passwordPrompt\"]/div/div[3]/div/button[1]")).click();
 	        Thread.sleep(60000);	
 	    	driver.navigate(). refresh() ;
-	    	Thread.sleep(3000);*/
+	    	Thread.sleep(3000);
 	    			 
 	    		 }
 	    }
