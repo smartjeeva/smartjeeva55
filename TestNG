@@ -1,0 +1,54 @@
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import java.awt.AWTException;
+import java.awt.Robot;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterClass;
+
+public class NewTest 
+{
+	static WebDriver driver;
+  @Test(description="This method validates the sign up functionality")
+  public void login() throws InterruptedException, AWTException 
+  {  	
+	  Actions action = new Actions(driver);
+	 driver.findElement(By.xpath("//*[@id=\"login\"]/div/div[2]/div[2]/div[1]/div/div/input")).sendKeys("admin");
+	 driver.findElement(By.xpath("//*[@id=\"login\"]/div/div[2]/div[2]/div[2]/div/div/input")).sendKeys("admin@123");
+	 driver.findElement(By.xpath("//*[@id=\"login\"]/div/div[2]/div[2]/div[5]/div/button")).click();
+	 Thread.sleep(3000);
+	 driver.findElement(By.xpath("//*[@id=\"id_center_content\"]/div[1]/div/div[1]/div/button[1]")).click();
+	 driver.findElement(By.xpath("//*[@id=\"id_center_content\"]/div[1]/div/div[2]/div/div[1]")).click(); 
+  }
+  @BeforeMethod
+  public void beforeMethod() throws InterruptedException 
+  {
+	  driver.get("http://172.16.0.130");
+	 driver.manage().window().maximize();
+	 Thread.sleep(3000);
+  }
+
+  @AfterMethod
+  public void afterMethod() {
+	  System.out.println(driver.getTitle());
+  }
+  @BeforeClass
+  public void beforeClass() 
+  {
+	  System.setProperty("webdriver.chrome.driver","D:\\chromedriver.exe");
+		ChromeOptions co=new ChromeOptions ();
+		co.addArguments("--remote-allow-origins=*");
+		  driver=new ChromeDriver(co);
+  }
+  @AfterClass
+  public void afterClass() {
+	driver.close();
+  }
+
+}
